@@ -21,7 +21,7 @@ namespace ColorPicker
             InitializeComponent();
         }
 
-        public void UpdateCanvas()
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             byte red = (byte)RedSlider.Value;
             byte green = (byte)GreenSlider.Value;
@@ -29,85 +29,23 @@ namespace ColorPicker
             ColorCanvas.Background = new SolidColorBrush(Color.FromRgb(red, green, blue));
         }
 
-        private void RedSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void ColorValue_TextChanged(object sender, TextChangedEventArgs e)
         {
-            UpdateCanvas();
+            if (sender is TextBox)
+            {
+                TextBox kuldo = sender as TextBox;
+                try
+                {
+                    int szin = int.Parse(kuldo.Text);
+                    kuldo.Text = (szin > 255 ? 255 : szin).ToString();
+                }
+                catch
+                {
+                    kuldo.Text = 0.ToString();
+                }
+            }
+
         }
 
-        private void GreenSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            UpdateCanvas();
-        }
-
-        private void BlueSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            UpdateCanvas();
-        }
-
-        private void RedValue_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            try
-            {
-                int red = int.Parse(RedValue.Text);
-                if (red > 255)
-                {
-                    RedValue.Text = 255.ToString();
-                }
-                else
-                {
-                    RedValue.Text = red.ToString();
-                }
-
-            }
-            catch
-            {
-
-                RedValue.Text = 0.ToString();
-            }
-        }
-
-        private void GreenValue_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            try
-            {
-                int green = int.Parse(GreenValue.Text);
-                if (green > 255)
-                {
-                    GreenValue.Text = 255.ToString();
-                }
-                else
-                {
-                    GreenValue.Text = green.ToString();
-                }
-
-            }
-            catch
-            {
-
-                GreenValue.Text = 0.ToString();
-            }
-        }
-
-        private void BlueValue_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            try
-            {
-                int blue = int.Parse(BlueValue.Text);
-                if (blue > 255)
-                {
-                    BlueValue.Text = 255.ToString();
-                }
-                else
-                {
-                    BlueValue.Text = blue.ToString();
-                }
-
-            }
-            catch
-            {
-
-                BlueValue.Text = 0.ToString();
-            }
-        }
     }
 }
