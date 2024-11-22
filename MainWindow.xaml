@@ -22,13 +22,13 @@
         <Label Grid.Row="1" Grid.Column="0" Content="Green:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
         <Label Grid.Row="2" Grid.Column="0" Content="Blue:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
 
-        <Slider Grid.Row="0" Grid.Column="1" Name="RedSlider" Minimum="0" Maximum="255" Value="0" TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" VerticalAlignment="Center" ValueChanged="RedSlider_ValueChanged" />
-        <Slider Grid.Row="1" Grid.Column="1" Name="GreenSlider" Minimum="0" Maximum="255" Value="0" TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" VerticalAlignment="Center" ValueChanged="GreenSlider_ValueChanged" />
-        <Slider Grid.Row="2" Grid.Column="1" Name="BlueSlider" Minimum="0" Maximum="255" Value="0" TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" VerticalAlignment="Center" ValueChanged="BlueSlider_ValueChanged" />
+        <Slider Grid.Row="0" Grid.Column="1" Name="RedSlider" Minimum="0" Maximum="255" Value="{Binding ElementName=RedValue, Path=Text, Mode=TwoWay}" TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" VerticalAlignment="Center" ValueChanged="RedSlider_ValueChanged" />
+        <Slider Grid.Row="1" Grid.Column="1" Name="GreenSlider" Minimum="0" Maximum="255" Value="{Binding ElementName=GreenValue, Path=Text, Mode=TwoWay}" TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" VerticalAlignment="Center" ValueChanged="GreenSlider_ValueChanged" />
+        <Slider Grid.Row="2" Grid.Column="1" Name="BlueSlider" Minimum="0" Maximum="255" Value="{Binding ElementName=BlueValue, Path=Text, Mode=TwoWay}" TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" VerticalAlignment="Center" ValueChanged="BlueSlider_ValueChanged" />
 
-        <TextBox Text="{Binding ElementName=RedSlider, Path=Value}" Grid.Row="0" Grid.Column="2" Name="RedValue" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
-        <TextBox Text="{Binding ElementName=GreenSlider, Path=Value}" Grid.Row="1" Grid.Column="2" Name="GreenValue" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
-        <TextBox Text="{Binding ElementName=BlueSlider, Path=Value}" Grid.Row="2" Grid.Column="2" Name="BlueValue" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
+        <TextBox Text="{Binding ElementName=RedSlider, Path=Value ,Mode=TwoWay}" Grid.Row="0" Grid.Column="2" Name="RedValue" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" TextChanged="RedValue_TextChanged" />
+        <TextBox Text="{Binding ElementName=GreenSlider, Path=Value}" Grid.Row="1" Grid.Column="2" Name="GreenValue" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" TextChanged="GreenValue_TextChanged" />
+        <TextBox Text="{Binding ElementName=BlueSlider, Path=Value}" Grid.Row="2" Grid.Column="2" Name="BlueValue" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" TextChanged="BlueValue_TextChanged" />
      
         <Canvas Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Name="ColorCanvas" Background="Black" Margin="10"/>
     </Grid>

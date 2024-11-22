@@ -44,5 +44,70 @@ namespace ColorPicker
             UpdateCanvas();
         }
 
+        private void RedValue_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                int red = int.Parse(RedValue.Text);
+                if (red > 255)
+                {
+                    RedValue.Text = 255.ToString();
+                }
+                else
+                {
+                    RedValue.Text = red.ToString();
+                }
+
+            }
+            catch
+            {
+
+                RedValue.Text = 0.ToString();
+            }
+        }
+
+        private void GreenValue_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                int green = int.Parse(GreenValue.Text);
+                if (green > 255)
+                {
+                    GreenValue.Text = 255.ToString();
+                }
+                else
+                {
+                    GreenValue.Text = green.ToString();
+                }
+
+            }
+            catch
+            {
+
+                GreenValue.Text = 0.ToString();
+            }
+        }
+
+        private void BlueValue_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                int blue = int.Parse(BlueValue.Text);
+                if (blue > 255)
+                {
+                    BlueValue.Text = 255.ToString();
+                }
+                else
+                {
+                    BlueValue.Text = blue.ToString();
+                }
+
+            }
+            catch
+            {
+
+                BlueValue.Text = 0.ToString();
+            }
+        }
     }
 }
