@@ -23,10 +23,7 @@ namespace ColorPicker
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            byte red = (byte)RedSlider.Value;
-            byte green = (byte)GreenSlider.Value;
-            byte blue = (byte)BlueSlider.Value;
-            ColorCanvas.Background = new SolidColorBrush(Color.FromRgb(red, green, blue));
+            ColorCanvas.Background = new SolidColorBrush(Color.FromRgb((byte)RedSlider.Value, (byte)GreenSlider.Value, (byte)BlueSlider.Value));
         }
 
         private void ColorValue_TextChanged(object sender, TextChangedEventArgs e)
